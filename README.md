@@ -4,6 +4,8 @@ This project is a simple application that demonstrates the use of threading and 
 
 Look also here: <https://www.weigu.lu/other_projects/python_coding/using_threading/index.html>
 
+[gui threading window](png/gui_threading_window_450.png "gui threading window")
+
 
 ## Project Structure
 

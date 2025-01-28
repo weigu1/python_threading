@@ -6,7 +6,7 @@ class GUI:
         self.flags = flags
         self.text_queues = text_queues
         self.root = tk.Tk()
-        self.root.title("Button Press GUI")        
+        self.root.title("Simple GUI using threading")        
         self.button_texts = { # Dictionary for button text
                              1: "Press Me 1",
                              2: "Press Me 2",

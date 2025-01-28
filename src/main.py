@@ -25,7 +25,7 @@ def main_loop(flags, myfunc, text_queues):
                 pass        
         time.sleep(0.1)
 
-if __name__ == "__main__":    
+def main():
     flag1 = threading.Event()   # Create Event objects to signal between threads
     flag2 = threading.Event()
     flag3 = threading.Event()
@@ -42,3 +42,6 @@ if __name__ == "__main__":
     main_thread.start()    
     gui_thread.join()         # Wait for both threads to complete
     main_thread.join()
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,6 @@
-# My Python Project
+# Python threading
 
-This project is a simple application that demonstrates the use of threading and a graphical user interface (GUI) in Python. The application consists of two main components: a main program logic that reacts to a button press and a GUI that allows the user to interact with the application.
+This project is a simple application that demonstrates the use of threading and a graphical user interface (GUI) in Python (Copilot helped :)). The application consists of three main components: a main program logic that reacts to a button press and passes text from entry fields, a GUI that allows the user to interact with the application and functions that are executed. The buttons use flags and the entry fields a queue. Flags and Queues are thread-safe and provide a simple way to manage data exchange between threads. They handle synchronization internally.
 
 ## Project Structure
 
@@ -8,8 +8,9 @@ This project is a simple application that demonstrates the use of threading and 
 my-python-project
 ├── src
 │   ├── main.py      # Entry point of the application
+│   ├── functions.py # module with our functions
 │   └── gui.py       # GUI module with a button
-├── requirements.txt  # Dependencies for the project
+├── requirements.txt # Dependencies for the project
 └── README.md        # Project documentation
 ```
 
@@ -21,12 +22,14 @@ To run this project, you need to install the required dependencies listed in `re
 pip install -r requirements.txt
 ```
 
+The only requirement used is `tkinter`.
+
 ## Running the Application
 
 1. Navigate to the project directory:
 
    ```
-   cd my-python-project
+   cd threading
    ```
 
 2. Run the main program:
@@ -36,7 +39,3 @@ pip install -r requirements.txt
    ```
 
 3. A GUI window will appear with a button. Pressing the button will set the `button_pressed_flag` to true, triggering the main program logic.
-
-## Contributing
-
-Feel free to fork the repository and submit pull requests for any improvements or features you would like to add.

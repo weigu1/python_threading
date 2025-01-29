@@ -23,7 +23,7 @@ def main_loop(flags_from_gui, myfunc, queues_from_gui, queues_to_gui):
             try:
                 text = text_queue.get_nowait()
                 print(f"Received text from gui queue {i + 1}: {text}")
-                queues_to_gui.put(f"Received text from gui queue {i + 1}: {text}")
+                queues_to_gui.put(f"Received text from main queue {i + 1}: {text}")
                 # Here you can add code to handle the text
             except queue.Empty:
                 pass        

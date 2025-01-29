@@ -50,7 +50,7 @@ class GUI:
         self.submit_button2.pack(pady=10)
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)    # Handle window close event
-        self.root.after(100, self.check_gui_queue)  # Periodically check the GUI queue
+        self.root.after(100, self.check_queue_from_main)  # Periodically check the GUI queue
 
     def set_flag(self, flag, message):
         flag.set()
@@ -64,14 +64,14 @@ class GUI:
         self.text_window.insert(tk.END, f"Entry {queue_index + 1} submitted: " + text + "\n")
         self.queues_from_gui[queue_index].put(text)  # Add the text to the appropriate queue
 
-    def check_gui_queue(self):
+    def check_queue_from_main(self):
         try:
             while True:
                 message = self.gui_queue.get_nowait()
                 self.text_window.insert(tk.END, message + "\n")
         except queue.Empty:
             pass
-        self.root.after(100, self.check_gui_queue)  # Check the queue again after 100ms
+        self.root.after(100, self.check_queue_from_main)  # Check the queue again after 100ms
 
     def on_closing(self):
         self.flags_from_gui[3].set()  # Set the exit flag to stop the main loop

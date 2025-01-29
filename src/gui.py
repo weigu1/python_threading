@@ -2,10 +2,10 @@ import tkinter as tk
 import queue
 
 class GUI:
-    def __init__(self, flags_2_main, queues_2_main, gui_queue):
+    def __init__(self, flags_2_main, queues_2_main, queues_2_gui):
         self.flags_2_main = flags_2_main
         self.queues_2_main = queues_2_main
-        self.gui_queue = gui_queue
+        self.queues_2_gui = queues_2_gui
         self.root = tk.Tk()
         self.root.title("Simple GUI using threading")        
         self.widget_texts_dict = { # Dictionary for button texts (button:message)
@@ -67,7 +67,7 @@ class GUI:
     def check_queue_from_main(self):
         try:
             while True:
-                message = self.gui_queue.get_nowait()
+                message = self.queues_2_gui.get_nowait()
                 self.text_window.insert(tk.END, message + "\n")
         except queue.Empty:
             pass
@@ -80,6 +80,6 @@ class GUI:
     def run(self):
         self.root.mainloop()
 
-def start_gui(flags_2_main, queues_2_main, gui_queue):
-    gui = GUI(flags_2_main, queues_2_main, gui_queue)
+def start_gui(flags_2_main, queues_2_main, queues_2_gui):
+    gui = GUI(flags_2_main, queues_2_main, queues_2_gui)
     gui.run()

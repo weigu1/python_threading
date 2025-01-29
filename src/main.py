@@ -36,11 +36,10 @@ def main():
     flag_exit = threading.Event()   # Exit flag
     flags_2_main = [flag_b1, flag_b2, flag_b3, flag_exit]
     myfunc = MyFunctions()      # Create an instance of MyFunctions
-    queue_2_main = queue.Queue() # Create queues for text
-    text_queue2 = queue.Queue()
-    queues_2_main = [text_queue1, text_queue2]
-    queues_2_gui = queue.Queue()   # Create a queue for communication from main_loop to GUI
-    
+    queue_2_main_1 = queue.Queue() # Create queues for text
+    queue_2_main_2 = queue.Queue()
+    queues_2_main = [queue_2_main_1, queue_2_main_2]
+    queues_2_gui = queue.Queue()   # Create a queue for communication from main_loop to GUI    
     gui_thread = threading.Thread(target=start_gui,     # Create GUI thread
                                   args=(flags_2_main, queues_2_main, queues_2_gui))
     main_thread = threading.Thread(target=main_loop,    # Create main_loop thread

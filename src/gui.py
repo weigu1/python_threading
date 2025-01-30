@@ -30,7 +30,7 @@ class GUI:
                                  command=lambda: self.set_flag(self.flags_2_main[2],
                                  self.widget_texts_dict[self.widget_texts_list[2]]))
         self.button3.pack(pady=10)
-        self.text_window = tk.Text(self.root, height=10, width=50) # Text window
+        self.text_window = tk.Text(self.root, height=10, width=60) # Text window
         self.text_window.pack(pady=20)
         
         self.entry1 = tk.Entry(self.root)                          # Entry window 1
@@ -62,7 +62,7 @@ class GUI:
         else:
             text = self.entry2.get()
         self.text_window.insert(tk.END, f"Entry {queue_index + 1} submitted: " + text + "\n")
-        self.queues_2_main[queue_index].put(text)  # Add the text to the appropriate queue
+        self.queues_2_main.put(text)  # Add the text to the appropriate queue
 
     def check_queue_from_main(self):
         try:
